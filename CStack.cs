@@ -26,7 +26,7 @@ namespace Inlamning_3_ra_kod
         public string varName;
         string[] vars = new string[8];
         string file = @"C:\Users\robin\source\repos\Inlamning_3_ra_kod\molkfreecalc.clc";
-
+        public List<string> fileValues;
 
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
@@ -39,26 +39,41 @@ namespace Inlamning_3_ra_kod
 
             if (File.Exists(file))
             {
-                using(StreamReader sr = new StreamReader(file))
+                fileValues = readFile(file);
+
+                // Set stack values from file
+                X = double.Parse(fileValues[0]);
+                Y = double.Parse(fileValues[1]);
+                Z = double.Parse(fileValues[2]);
+                T = double.Parse(fileValues[3]);
+
+                // Set variables values from file
+                /*                vars = new string[]{fileValues[4], fileValues[5], fileValues[6],
+                                            fileValues[7],
+                                            fileValues[8],
+                                            fileValues[9],
+                                            fileValues[10],
+                                            fileValues[11]};*/
+
+
+                // Set variables values from file
+                int j = 4;
+                for (int i = 0; i < vars.Length; i++)
                 {
-                    string[] fileValues = sr.ReadToEnd().ToString().Split(';');
-                    X = double.Parse(fileValues[0]);
-                    Y = double.Parse(fileValues[1]);
-                    Z = double.Parse(fileValues[2]);
-                    T = double.Parse(fileValues[3]);
-
-                    vars = new string[]{
-                            fileValues[4],
-                            fileValues[5],
-                            fileValues[6],
-                            fileValues[7],
-                            fileValues[8],
-                            fileValues[9],
-                            fileValues[10],
-                            fileValues[11]};
+                    vars[i] = fileValues[j];
+                    j++;
                 }
-
             }
+        }
+
+        public List<string> readFile(string file)
+        {
+            List<string> fileValues;
+            using (StreamReader sr = new StreamReader(file))
+            {
+                fileValues = sr.ReadToEnd().ToString().Split(';').ToList();
+            }
+            return fileValues;
         }
 
         /* METHOD: Exit
@@ -68,9 +83,15 @@ namespace Inlamning_3_ra_kod
          */
         public void Exit()
         {
-            using(StreamWriter sw = new StreamWriter(file))
+            using (StreamWriter sw = new StreamWriter(file))
             {
-                sw.Write(@"{0};{1};{2};{3}", X, Y, Z, T);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < vars.Length; i++)
+                {
+                    sb.Append($"{vars[i]};");
+                }
+
+                sw.Write(@"{0};{1};{2};{3};{4}", X, Y, Z, T, sb.ToString());
             }
         }
         /* METHOD: StackString
