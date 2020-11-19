@@ -26,7 +26,6 @@ namespace Inlamning_3_ra_kod
         public string entry;
         public string varName;
         string[] vars = new string[8];
-        //string file = @"C:\Users\robin\source\repos\Inlamning_3_ra_kod\molkfreecalc.clc";
         string file = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\data\molkfreecalc.clc");
         public List<string> fileValues;
 
