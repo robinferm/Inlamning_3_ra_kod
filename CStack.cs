@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace Inlamning_3_ra_kod
         public string entry;
         public string varName;
         string[] vars = new string[8];
+        string file = @"C:\Users\robin\source\repos\Inlamning_3_ra_kod\molkfreecalc.clc";
+
 
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
@@ -34,6 +37,18 @@ namespace Inlamning_3_ra_kod
             X = Y = Z = T = 0;
             entry = "";
 
+            if (File.Exists(file))
+            {
+                using(StreamReader sr = new StreamReader(file))
+                {
+                    string[] fileValues = sr.ReadToEnd().ToString().Split(';');
+                    X = double.Parse(fileValues[0]);
+                    Y = double.Parse(fileValues[1]);
+                    Z = double.Parse(fileValues[2]);
+                    T = double.Parse(fileValues[3]);
+                }
+
+            }
         }
 
         /* METHOD: Exit
