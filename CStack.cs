@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,36 +26,28 @@ namespace Inlamning_3_ra_kod
         public string entry;
         public string varName;
         string[] vars = new string[8];
-        string file = @"C:\Users\robin\source\repos\Inlamning_3_ra_kod\molkfreecalc.clc";
+        //string file = @"C:\Users\robin\source\repos\Inlamning_3_ra_kod\molkfreecalc.clc";
+        string file = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"..\..\data\molkfreecalc.clc");
         public List<string> fileValues;
 
         /* CONSTRUCTOR: CStack
-         * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
+         * PURPOSE: create a new stack and init X, Y, Z, T and the text entry.
+         *          If file exists, also init vars and load all values from file.
          * PARAMETERS: --
          */
         public CStack()
         {
-            X = Y = Z = T = 0;
             entry = "";
 
             if (File.Exists(file))
             {
-                fileValues = readFile(file);
+                fileValues = ReadFile(file);
 
                 // Set stack values from file
                 X = double.Parse(fileValues[0]);
                 Y = double.Parse(fileValues[1]);
                 Z = double.Parse(fileValues[2]);
                 T = double.Parse(fileValues[3]);
-
-                // Set variables values from file
-                /*                vars = new string[]{fileValues[4], fileValues[5], fileValues[6],
-                                            fileValues[7],
-                                            fileValues[8],
-                                            fileValues[9],
-                                            fileValues[10],
-                                            fileValues[11]};*/
-
 
                 // Set variables values from file
                 int j = 4;
@@ -64,9 +57,18 @@ namespace Inlamning_3_ra_kod
                     j++;
                 }
             }
+            else
+            {
+                X = Y = Z = T = 0;
+            }
         }
 
-        public List<string> readFile(string file)
+        /* METHOD: ReadFile
+         * PURPOSE: Read textfile and set values in a list
+         * PARAMETERS: file - textfile with delimiter ';'
+         * RETURNS: List containing all values from the file
+         */
+        public List<string> ReadFile(string file)
         {
             List<string> fileValues;
             using (StreamReader sr = new StreamReader(file))
@@ -77,7 +79,7 @@ namespace Inlamning_3_ra_kod
         }
 
         /* METHOD: Exit
-         * PURPOSE: called on exit, saves stack to file
+         * PURPOSE: called on exit, saves stack and variables to file with delimiter ';'
          * PARAMETERS: --
          * RETURNS: --
          */
@@ -303,20 +305,18 @@ namespace Inlamning_3_ra_kod
             T = Z; Z = Y; Y = X; X = newX;
         }
         /* METHOD: SetAddress
-         * PURPOSE: 
-         * PARAMETERS: string name - variable name
+         * PURPOSE: Set varName to the last variable-button pressed.
+         * PARAMETERS: name - name of the button pressed
          * RETURNS: --
-         * FEATURES: NOT YET IMPLEMENTED
          */
         public void SetAddress(string name)
         {
             varName = name;
         }
         /* METHOD: SetVar
-         * PURPOSE: 
+         * PURPOSE: Set value to a variable in the array 'vars'
          * PARAMETERS: --
          * RETURNS: --
-         * FEATURES: NOT YET IMPLEMENTED
          */
         public void SetVar()
         {
@@ -333,10 +333,9 @@ namespace Inlamning_3_ra_kod
             }
         }
         /* METHOD: GetVar
-         * PURPOSE: 
+         * PURPOSE: Set X to a value from a variable
          * PARAMETERS: --
          * RETURNS: --
-         * FEATURES: NOT YET IMPLEMENTED
          */
         public void GetVar()
         {
