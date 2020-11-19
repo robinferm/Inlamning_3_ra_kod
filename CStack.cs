@@ -46,19 +46,32 @@ namespace Inlamning_3_ra_kod
                     Y = double.Parse(fileValues[1]);
                     Z = double.Parse(fileValues[2]);
                     T = double.Parse(fileValues[3]);
+
+                    vars = new string[]{
+                            fileValues[4],
+                            fileValues[5],
+                            fileValues[6],
+                            fileValues[7],
+                            fileValues[8],
+                            fileValues[9],
+                            fileValues[10],
+                            fileValues[11]};
                 }
 
             }
         }
 
         /* METHOD: Exit
-         * PURPOSE: called on exit, prepared for saving
+         * PURPOSE: called on exit, saves stack to file
          * PARAMETERS: --
          * RETURNS: --
          */
         public void Exit()
         {
-
+            using(StreamWriter sw = new StreamWriter(file))
+            {
+                sw.Write(@"{0};{1};{2};{3}", X, Y, Z, T);
+            }
         }
         /* METHOD: StackString
          * PURPOSE: construct a string to write out in a stack view
@@ -82,6 +95,7 @@ namespace Inlamning_3_ra_kod
             {
                 sb.Append($"{vars[i]}\n");
             }
+            sb.Append(varName);
             return sb.ToString();
         }
         /* METHOD: SetX
