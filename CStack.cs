@@ -292,14 +292,14 @@ namespace Inlamning_3_ra_kod
         {
             switch (varName)
             {
-                case "A": X = double.Parse(vars[0]); break;
-                case "B": X = double.Parse(vars[1]); break;
-                case "C": X = double.Parse(vars[2]); break;
-                case "D": X = double.Parse(vars[3]); break;
-                case "E": X = double.Parse(vars[4]); break;
-                case "F": X = double.Parse(vars[5]); break;
-                case "G": X = double.Parse(vars[6]); break;
-                case "H": X = double.Parse(vars[7]); break;
+                case "A": RollSetX(double.Parse(vars[0])); break;
+                case "B": RollSetX(double.Parse(vars[1])); break;
+                case "C": RollSetX(double.Parse(vars[2])); break;
+                case "D": RollSetX(double.Parse(vars[3])); break;
+                case "E": RollSetX(double.Parse(vars[4])); break;
+                case "F": RollSetX(double.Parse(vars[5])); break;
+                case "G": RollSetX(double.Parse(vars[6])); break;
+                case "H": RollSetX(double.Parse(vars[7])); break;
             }
         }
     }
