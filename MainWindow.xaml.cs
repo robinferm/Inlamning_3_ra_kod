@@ -124,15 +124,18 @@ namespace Inlamning_3_ra_kod
         {
             string op = (sender as Button).Content.ToString();
             cs.SetAddress(op);
+            UpdateNumberField();
         }
 
         private void OpBtn_sto(object sender, RoutedEventArgs e)
         {
             cs.SetVar();
+            UpdateNumberField();
         }
         private void OpBtn_rcl(object sender, RoutedEventArgs e)
         {
             cs.GetVar();
+            UpdateNumberField();
         }
     }
 }

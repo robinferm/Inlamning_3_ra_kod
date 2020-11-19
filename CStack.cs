@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Inlamning_3_ra_kod
 {
@@ -21,6 +22,7 @@ namespace Inlamning_3_ra_kod
     {
         public double X, Y, Z, T;
         public string entry;
+        public string varName;
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
          * PARAMETERS: --
@@ -31,11 +33,11 @@ namespace Inlamning_3_ra_kod
             entry = "";
         }
 
-        public class VarEntry
+/*        public class VarEntry
         {
             string varName;
             double value;
-        }
+        }*/
 
         /* METHOD: Exit
          * PURPOSE: called on exit, prepared for saving
@@ -256,7 +258,8 @@ namespace Inlamning_3_ra_kod
          */
         public void SetAddress(string name)
         {
-
+            varName = name;
+            //MessageBox.Show(varName);
         }
         /* METHOD: SetVar
          * PURPOSE: 
