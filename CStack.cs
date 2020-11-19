@@ -58,11 +58,16 @@ namespace Inlamning_3_ra_kod
         /* METHOD: VarString
          * PURPOSE: construct a string to write out in a variable list
          * PARAMETERS: --
-         * RETURNS: NOT YET IMPLEMENTED
+         * RETURNS: the string containing the values in array "vars" with newlines between them
          */
         public string VarString()
         {
-            return "insertme";
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < vars.Length; i++)
+            {
+                sb.Append($"{vars[i]}\n");
+            }
+            return sb.ToString();
         }
         /* METHOD: SetX
          * PURPOSE: set X with overwrite
