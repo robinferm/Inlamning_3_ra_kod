@@ -23,6 +23,8 @@ namespace Inlamning_3_ra_kod
         public double X, Y, Z, T;
         public string entry;
         public string varName;
+        string[] vars = new string[8];
+
         /* CONSTRUCTOR: CStack
          * PURPOSE: create a new stack and init X, Y, Z, T and the text entry
          * PARAMETERS: --
@@ -31,13 +33,8 @@ namespace Inlamning_3_ra_kod
         {
             X = Y = Z = T = 0;
             entry = "";
-        }
 
-/*        public class VarEntry
-        {
-            string varName;
-            double value;
-        }*/
+        }
 
         /* METHOD: Exit
          * PURPOSE: called on exit, prepared for saving
@@ -259,7 +256,6 @@ namespace Inlamning_3_ra_kod
         public void SetAddress(string name)
         {
             varName = name;
-            //MessageBox.Show(varName);
         }
         /* METHOD: SetVar
          * PURPOSE: 
@@ -269,7 +265,17 @@ namespace Inlamning_3_ra_kod
          */
         public void SetVar()
         {
-
+            switch (varName)
+            {
+                case "A": vars[0] = X.ToString(); break;
+                case "B": vars[1] = X.ToString(); break;
+                case "C": vars[2] = X.ToString(); break;
+                case "D": vars[3] = X.ToString(); break;
+                case "E": vars[4] = X.ToString(); break;
+                case "F": vars[5] = X.ToString(); break;
+                case "G": vars[6] = X.ToString(); break;
+                case "H": vars[7] = X.ToString(); break;
+            }
         }
         /* METHOD: GetVar
          * PURPOSE: 
@@ -279,7 +285,17 @@ namespace Inlamning_3_ra_kod
          */
         public void GetVar()
         {
-
+            switch (varName)
+            {
+                case "A": X = double.Parse(vars[0]); break;
+                case "B": X = double.Parse(vars[1]); break;
+                case "C": X = double.Parse(vars[2]); break;
+                case "D": X = double.Parse(vars[3]); break;
+                case "E": X = double.Parse(vars[4]); break;
+                case "F": X = double.Parse(vars[5]); break;
+                case "G": X = double.Parse(vars[6]); break;
+                case "H": X = double.Parse(vars[7]); break;
+            }
         }
     }
 }
