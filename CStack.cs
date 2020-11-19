@@ -49,6 +49,15 @@ namespace Inlamning_3_ra_kod
         {
             return $"{T}\n{Z}\n{Y}\n{X}\n{entry}";
         }
+        /* METHOD: VarString
+         * PURPOSE: construct a string to write out in a variable list
+         * PARAMETERS: --
+         * RETURNS: NOT YET IMPLEMENTED
+         */
+        public string VarString()
+        {
+            return "insertme";
+        }
         /* METHOD: SetX
          * PURPOSE: set X with overwrite
          * PARAMETERS: double newX - the new value to put in X
@@ -232,14 +241,32 @@ namespace Inlamning_3_ra_kod
         {
             T = Z; Z = Y; Y = X; X = newX;
         }
+        /* METHOD: SetAddress
+         * PURPOSE: 
+         * PARAMETERS: string name - variable name
+         * RETURNS: --
+         * FEATURES: NOT YET IMPLEMENTED
+         */
         public void SetAddress(string name)
         {
 
         }
+        /* METHOD: SetVar
+         * PURPOSE: 
+         * PARAMETERS: --
+         * RETURNS: --
+         * FEATURES: NOT YET IMPLEMENTED
+         */
         public void SetVar()
         {
 
         }
+        /* METHOD: GetVar
+         * PURPOSE: 
+         * PARAMETERS: --
+         * RETURNS: --
+         * FEATURES: NOT YET IMPLEMENTED
+         */
         public void GetVar()
         {
 

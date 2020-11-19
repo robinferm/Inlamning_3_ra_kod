@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace Inlamning_3_ra_kod
         private void UpdateNumberField()
         {
             NumberField.Text = cs.StackString();
+            VarField.Text = cs.VarString();
         }
         private void NumBtn(object sender, RoutedEventArgs e)
         {

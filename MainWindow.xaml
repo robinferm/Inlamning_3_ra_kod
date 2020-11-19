@@ -47,7 +47,7 @@
         <Button Content="cos" Click="OpBtn_unop" HorizontalAlignment="Left" Margin="490,261,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="sin" Click="OpBtn_unop" HorizontalAlignment="Left" Margin="490,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
         <Button Content="e" Click="OpBtn_nilop" HorizontalAlignment="Left" Margin="410,261,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
-        <Button Content="π" Click="OpBtn_nilop" HorizontalAlignment="Left" Margin="410,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
+        <Button Content=" !" Click="OpBtn_nilop" HorizontalAlignment="Left" Margin="410,211,0,0" VerticalAlignment="Top" Width="75" FontSize="30"/>
 
         <!-- Stack stuff -->
         <Button Background="#FFFF44" Content="enter" Name="EnterBtn" Click="EnterBtnClick" HorizontalAlignment="Left" Margin="10,261,0,0" VerticalAlignment="Top" Width="235" FontSize="30"/>
