@@ -30,6 +30,13 @@ namespace Inlamning_3_ra_kod
             X = Y = Z = T = 0;
             entry = "";
         }
+
+        public class VarEntry
+        {
+            string varName;
+            double value;
+        }
+
         /* METHOD: Exit
          * PURPOSE: called on exit, prepared for saving
          * PARAMETERS: --
